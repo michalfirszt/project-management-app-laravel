@@ -10,3 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// ProjectController
+
+Route::get('/', 'ProjectController@index')->name('project.index');
