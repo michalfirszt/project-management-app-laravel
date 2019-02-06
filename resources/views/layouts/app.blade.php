@@ -21,7 +21,9 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mainNav">
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('project.create') }}">Create project</a>
+                    </li>
                 </ul>
             </div>
 

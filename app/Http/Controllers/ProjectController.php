@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -26,18 +27,36 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ProjectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        //
+        $data = $request->only('title', 'description');
+
+        try {
+            
+            $project = Project::create([
+                'title' => $data['title'],
+                'description' => $data['description']
+            ]);
+
+        } catch (\Exception $e) {
+
+            flash('Error: ' . $e->getMessage())->error();
+
+            return redirect()->back();
+        }
+
+        flash('Project ' . $project->title . ' created successfully')->success();
+
+        return redirect()->route('project.index');
     }
 
     /**
