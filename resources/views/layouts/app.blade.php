@@ -11,7 +11,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('project.index') }}">
                 Project
             </a>
 
