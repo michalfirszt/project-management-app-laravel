@@ -16,9 +16,10 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        {{ $project->title }}
+                        <a href="{{ route('project.show', $project) }}">{{ $project->title }}</a>
                     </h5>
                     <p class="card-text">{!! $project->description !!}</p>
+                    <a href="{{ route('project.show', $project) }}" class="btn btn-primary">Show</a>
                 </div>
             </div>
         </div>
