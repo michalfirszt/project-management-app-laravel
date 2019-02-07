@@ -19,3 +19,4 @@ Route::post('project/store', 'ProjectController@store')->name('project.store');
 Route::get('/project/{project}', 'ProjectController@show')->name('project.show');
 Route::get('/project/{project}/edit', 'ProjectController@edit')->name('project.edit');
 Route::put('/project/{project}/update', 'ProjectController@update')->name('project.update');
+Route::get('/project/{project}/destroy', 'ProjectController@destroy')->name('project.destroy');
