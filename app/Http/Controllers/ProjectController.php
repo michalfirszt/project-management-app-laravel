@@ -56,7 +56,7 @@ class ProjectController extends Controller
 
         flash('Project ' . $project->title . ' created successfully')->success();
 
-        return redirect()->route('project.index');
+        return redirect()->route('project.show', $project);
     }
 
     /**
@@ -67,7 +67,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('project.show')->withProject($project);
     }
 
     /**
