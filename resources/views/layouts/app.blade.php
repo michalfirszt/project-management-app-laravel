@@ -21,7 +21,9 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mainNav">
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('project.create') }}">Create project</a>
+                    </li>
                 </ul>
             </div>
 
@@ -37,6 +39,18 @@
 
     <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+    <script>
+    
+        $(document).ready(function () {
+            $('.confirm').click(function () {
+                if (!confirm('Are you sure to continue?')) {
+                    return false;
+                } 
+            });
+        });
+    
+    </script>
 
 </body>
 </html>
