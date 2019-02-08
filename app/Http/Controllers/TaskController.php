@@ -3,39 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TaskRequest  $request
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request, Project  $project)
     {
-        //
+        $data = $request->only('title');
+        
+        try {
+
+            $task = new Task();
+            $task->title = $data['title'];
+
+            $project->tasks()
+                    ->save($task);
+
+        } catch (\Exception $e) {
+
+            flash('Error: ' . $e->getMessage())->error();
+
+            return redirect()->back();
+        }
+
+        flash('Task <strong>' . $task->title . '</strong> created successfull')->success();
+
+        return redirect()->route('project.show', $project);
     }
 
     /**
