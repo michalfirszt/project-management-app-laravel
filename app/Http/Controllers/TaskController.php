@@ -35,7 +35,7 @@ class TaskController extends Controller
             return redirect()->back();
         }
 
-        flash('Task <strong>' . $task->title . '</strong> created successfull')->success();
+        flash('Task <strong>' . $task->title . '</strong> created successfully')->success();
 
         return redirect()->route('project.show', $project);
     }
@@ -48,7 +48,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return view('task.show')->withTask($task);
     }
 
     /**
