@@ -20,3 +20,7 @@ Route::get('/project/{project}', 'ProjectController@show')->name('project.show')
 Route::get('/project/{project}/edit', 'ProjectController@edit')->name('project.edit');
 Route::put('/project/{project}/update', 'ProjectController@update')->name('project.update');
 Route::get('/project/{project}/destroy', 'ProjectController@destroy')->name('project.destroy');
+
+// TaskController
+
+Route::post('/task/store/{project}', 'TaskController@store')->name('task.store');

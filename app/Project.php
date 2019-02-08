@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Task;
 
 class Project extends Model
 {
@@ -10,4 +11,9 @@ class Project extends Model
         'title',
         'description'
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
