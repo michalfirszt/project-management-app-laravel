@@ -15,4 +15,19 @@ class Task extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function toggle()
+    {
+        if ($this->closed) {
+
+            $this->closed = 0;
+            $this->save();
+        
+        } else {
+
+            $this->closed = 1;
+            $this->save();
+
+        }
+    }
 }

@@ -39,7 +39,13 @@
             <div class="col-md-3 col-sm-6 mt-4">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('task.show', $task) }}" class="card-link">{{ $task->title }}</a>
+                        <h5 class="card-title {{ $task->closed ? 'closed' : ''}}">
+                            {{ $task->title }}
+                        </h5>
+                        <a href="{{ route('task.show', $task) }}" class="card-link">Show</a>
+                        <a href="{{ route('task.toggle', $task) }}" class="card-link">
+                            {{ $task->closed ? 'Open' : 'Close' }}
+                        </a>
                     </div>
                 </div>
             </div>

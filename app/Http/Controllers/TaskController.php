@@ -51,6 +51,13 @@ class TaskController extends Controller
         return view('task.show')->withTask($task);
     }
 
+    public function toggle(Task $task)
+    {
+        $task->toggle();
+
+        return redirect()->back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

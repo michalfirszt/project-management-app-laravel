@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Project management app laravel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     
