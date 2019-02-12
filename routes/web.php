@@ -24,3 +24,5 @@ Route::get('/project/{project}/destroy', 'ProjectController@destroy')->name('pro
 // TaskController
 
 Route::post('/task/store/{project}', 'TaskController@store')->name('task.store');
+Route::get('/task/{task}', 'TaskController@show')->name('task.show');
+Route::get('/task/{task}/toggle', 'TaskController@toggle')->name('task.toggle');

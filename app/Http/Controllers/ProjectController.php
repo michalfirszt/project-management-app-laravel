@@ -54,7 +54,7 @@ class ProjectController extends Controller
             return redirect()->back();
         }
 
-        flash('Project ' . $project->title . ' created successfully')->success();
+        flash('Project <strong>' . $project->title . '</strong> created successfully')->success();
 
         return redirect()->route('project.show', $project);
     }
@@ -106,7 +106,7 @@ class ProjectController extends Controller
             return redirect()->back();
         }
 
-        flash('Project ' . $project->title . ' changed successfully')->success();
+        flash('Project <strong>' . $project->title . '</strong> changed successfully')->success();
 
         return redirect()->route('project.show', $project);
     }
@@ -129,7 +129,7 @@ class ProjectController extends Controller
             return redirect()->back();
         }
 
-        flash('Project ' . $project->title . ' deleted successfully')->success();
+        flash('Project <strong>' . $project->title . '</strong> deleted successfully')->success();
 
         return redirect()->route('project.index');
     }

@@ -28,11 +28,27 @@
 
     @if (count($project->tasks) > 0)
         
-        <div>
+        <div class="row mt-5">
+
+            <div class="col-sm-12">
+                <h3>Tasks</h3>
+            </div>
 
         @foreach ($project->tasks as $task)
 
-            <p>{{ $task->title }}</p>
+            <div class="col-md-3 col-sm-6 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title {{ $task->closed ? 'closed' : ''}}">
+                            {{ $task->title }}
+                        </h5>
+                        <a href="{{ route('task.show', $task) }}" class="card-link">Show</a>
+                        <a href="{{ route('task.toggle', $task) }}" class="card-link">
+                            {{ $task->closed ? 'Open' : 'Close' }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         
         @endforeach
 
@@ -48,7 +64,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="addTaskModalLabel">Add Task</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
