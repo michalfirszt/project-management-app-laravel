@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 // ProjectController
 
 Route::get('/', 'ProjectController@index')->name('project.index');
