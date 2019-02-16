@@ -42,10 +42,11 @@ class ProjectController extends Controller
 
         try {
             
-            $project = Project::create([
-                'title' => $data['title'],
-                'description' => $data['description']
-            ]);
+            $project = new Project();
+            $project->title = $data['title'];
+            $project->description = $data['description'];
+
+            auth()->user()->projects()->save($project);
 
         } catch (\Exception $e) {
 
