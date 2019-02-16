@@ -22,9 +22,11 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mainNav">
+                    @auth                        
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('project.create') }}">{{ __('Create project') }}</a>
                     </li>
+                    @endauth
                 </ul>
                 
                 <ul class="navbar-nav ml-auto">
