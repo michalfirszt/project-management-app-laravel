@@ -32,4 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/task/store/{project}', 'TaskController@store')->name('task.store');
     Route::get('/task/{task}', 'TaskController@show')->name('task.show');
     Route::get('/task/{task}/toggle', 'TaskController@toggle')->name('task.toggle');
+    Route::get('/task/{task}/edit', 'TaskController@edit')->name('task.edit');
+    Route::put('/task/{task}/update', 'TaskController@update')->name('task.update');
+    Route::get('/task/{task}/destroy', 'TaskController@destroy')->name('task.destroy');
 });
