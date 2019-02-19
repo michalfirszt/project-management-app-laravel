@@ -73,9 +73,14 @@
 
                 <div class="form-group">
                     {{ Form::label('title', 'Title:') }}
-                    {{ Form::text('title', old('title'), ['class' => 'form-control', 'required', 'placeholder' => 'Add task']) }}
+                    {{ Form::text('title', old('title'), ['class' => 'form-control', 'required', 'placeholder' => 'Name']) }}
                 </div>
                 
+                <div class="form-group">
+                    {{ Form::label('description', 'Description:') }}
+                    {{ Form::textarea('description', old('description'), ['class' => 'form-control', 'required', 'placeholder' => 'Description']) }}
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

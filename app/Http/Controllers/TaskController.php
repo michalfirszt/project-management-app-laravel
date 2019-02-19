@@ -18,12 +18,13 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request, Project  $project)
     {
-        $data = $request->only('title');
+        $data = $request->only('title', 'description');
         
         try {
 
             $task = new Task();
             $task->title = $data['title'];
+            $task->description = $data['description'];
 
             $project->tasks()
                     ->save($task);
@@ -66,7 +67,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('task.edit')->withTask($task);
     }
 
     /**
@@ -78,7 +79,25 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $data = $request->only('title', 'description');
+
+        try {
+
+            $task->update([
+                'title' => $data['title'],
+                'description' => $data['description']
+            ]);
+
+        } catch (\Exception $e) {
+
+            flash('Error: ' . $e->getMessage())->error();
+
+            return redirect()->back();
+        }
+
+        flash('Task <strong>' . $task->title . '</strong>  changed successfully')->success();
+
+        return redirect()->route('task.show', $task);
     }
 
     /**
@@ -89,6 +108,19 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        try {
+
+            $task->delete();
+
+        } catch (\Exception $e) {
+
+            flash('Error: ' . $e->getMessage())->error();
+
+            return redirect()->back();
+        }
+
+        flash('Task <strong>' . $task->title . '</strong> deleted successfully')->success();
+
+        return redirect()->route('project.show', $task->project);
     }
 }
